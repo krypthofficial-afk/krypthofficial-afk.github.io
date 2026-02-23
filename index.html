@@ -1,90 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kryptho | KRYP</title>
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0d0d0d;
-    color: #ffffff;
-    text-align: center;
-}
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 20px;
-}
-h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-h2 {
-    font-weight: normal;
-    color: #cccccc;
-}
-.section {
-    margin-top: 40px;
-}
-a {
-    color: #4da6ff;
-    text-decoration: none;
-}
-.footer {
-    margin-top: 60px;
-    font-size: 14px;
-    color: #888888;
-}
-.button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 1px solid #4da6ff;
-    color: #4da6ff;
-    text-decoration: none;
-}
-.button:hover {
-    background-color: #4da6ff;
-    color: #0d0d0d;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kryptho (KRYP) is a rule based digital asset built on Solana, designed around transparency, decentralization, and community governed stewardship." />
+  <title>Kryptho | KRYP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --faint: rgba(255,255,255,0.55);
+      --accent: #7aa7ff;
+      --accent2: #9be7ff;
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 15% 10%, rgba(122,167,255,0.15), transparent 60%),
+                  radial-gradient(900px 500px at 85% 20%, rgba(155,231,255,0.10), transparent 55%),
+                  radial-gradient(900px 700px at 50% 90%, rgba(122,167,255,0.08), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a{ color: var(--text); text-decoration: none; }
+    a:hover{ opacity: 0.92; }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+
+    .logo{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(122,167,255,0.95), rgba(155,231,255,0.85));
+      box-shadow: 0 12px 30px rgba(122,167,255,0.25);
+      position: relative;
+      overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.55), transparent 45%);
+      transform: rotate(25deg);
+    }
+
+    .brand-title{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand-title strong{ font-weight: 700; letter-spacing: 0.2px; }
+    .brand-title span{ color: var(--muted); font-size: 13px; }
+
+    .nav-links{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .pill:hover{
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    .hero{
+      margin-top: 22px;
+      padding: 34px 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:-120px;
+      right:-180px;
+      width: 460px;
+      height: 460px;
+      background: radial-gradient(circle at 30% 30%, rgba(122,167,255,0.28), transparent 55%);
+      filter: blur(2px);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 4.3vw, 54px);
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 56ch;
+    }
+
+    .cta-row{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform 120ms ease, background 120ms ease;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+    .btn.primary{
+      border-color: rgba(122,167,255,0.55);
+      background: linear-gradient(135deg, rgba(122,167,255,0.35), rgba(155,231,255,0.18));
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(122,167,255,0.44), rgba(155,231,255,0.22));
+    }
+
+    .card{
+      border-radius: var(--radius2);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+      padding: 16px;
+    }
+
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .kpi .item{
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .kpi .item .label{
+      color: var(--faint);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .kpi .item .value{
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+
+    .section{
+      margin-top: 16px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .section p{
+      margin: 0;
+      color: var(--muted);
+      max-width: 86ch;
+    }
+
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .mini{
+      padding: 16px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.16);
+    }
+    .mini h3{
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: 0.1px;
+    }
+    .mini p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      color: rgba(255,255,255,0.86);
+      word-break: break-all;
+    }
+
+    .copyrow{
+      display:flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .toast{
+      display:none;
+      margin-left: 6px;
+      color: var(--accent2);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .footer{
+      margin-top: 26px;
+      color: rgba(255,255,255,0.52);
+      font-size: 13px;
+      text-align: center;
+      padding: 24px 10px 0;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
-    <h1>Kryptho</h1>
-    <h2>KRYP</h2>
-    <p>A rule based digital asset aligned with voluntary exchange and structural transparency.</p>
+  <div class="wrap">
 
-    <div class="section">
-        <h3>Token Details</h3>
-        <p>Blockchain: Solana</p>
-        <p>Total Supply: 1,000,000,000 KRYP</p>
-        <p>Mint Authority: Renounced</p>
-        <p>Freeze Authority: Renounced</p>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-title">
+          <strong>Kryptho</strong>
+          <span>KRYP on Solana</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a class="pill" href="#overview">Overview</a>
+        <a class="pill" href="#verification">Verification</a>
+        <a class="pill" href="#governance">Governance</a>
+        <a class="pill" href="#docs">Docs</a>
+      </div>
     </div>
 
-    <div class="section">
-        <h3>Liquidity</h3>
-        <p>Public KRYP USDC liquidity on Raydium</p>
-        <a class="button" href="#" target="_blank">View on Raydium</a>
+    <div class="hero" id="overview">
+      <div class="hero-grid">
+        <div>
+          <h1>Rule based infrastructure for voluntary exchange</h1>
+          <p class="subtitle">
+            Kryptho is a decentralized digital asset built on Solana. It is designed to be verifiable, disciplined, and community governed once a minimum base of qualifying holders is reached.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" target="_blank" rel="noopener noreferrer"
+               href="https://raydium.io/liquidity-pools/?token=BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN&sort_by=liquidity&tab=standard">
+              View liquidity on Raydium
+            </a>
+
+            <a class="btn" target="_blank" rel="noopener noreferrer"
+               href="https://drive.google.com/file/d/1jVpb_G4QcfyVrN6_6RsWrFCgcOyd_h-k/view?usp=drivesdk">
+              Read the litepaper
+            </a>
+          </div>
+
+          <div class="section" style="margin-top:18px;">
+            <h2>Intent</h2>
+            <p>
+              Kryptho does not market guaranteed outcomes. Its thesis is structural. predictable rules, transparent stewardship, and gradual decentralization anchored in real participation.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" id="verification">
+          <div class="kpi">
+            <div class="item">
+              <div class="label">Blockchain</div>
+              <div class="value">Solana</div>
+            </div>
+            <div class="item">
+              <div class="label">Symbol</div>
+              <div class="value">KRYP</div>
+            </div>
+            <div class="item">
+              <div class="label">Total supply</div>
+              <div class="value">1,000,000,000</div>
+            </div>
+            <div class="item">
+              <div class="label">Decimals</div>
+              <div class="value">9</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div class="label" style="color:var(--faint); font-size:12px;">Token address</div>
+            <div class="mono" id="tokenAddr">BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN</div>
+
+            <div class="copyrow">
+              <button class="btn" id="copyBtn" type="button">Copy address</button>
+              <span class="toast" id="toast">Copied</span>
+            </div>
+
+            <div style="margin-top:12px; color:var(--muted); font-size:14px;">
+              Mint authority and freeze authority have been renounced, as verified on chain.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-        <h3>Documentation</h3>
-        <a class="button" href="#" target="_blank">Litepaper</a>
+    <div class="grid">
+      <div class="mini">
+        <h3>Liquidity permanence</h3>
+        <p>
+          KRYP is publicly tradable through the KRYP USDC pool on Raydium. The LP tokens have been burned to reinforce permanence at the infrastructure level.
+        </p>
+      </div>
+
+      <div class="mini">
+        <h3>Treasury discipline</h3>
+        <p>
+          The treasury supply is subject to time based vesting. A portion may be strategically converted for liquidity reinforcement under transparent limits, including a conversion cap of eight percent of total supply per twelve month period unless governance approves a supermajority exception.
+        </p>
+      </div>
     </div>
 
-    <div class="section">
-        <h3>Governance</h3>
-        <p>Activation at 20 qualifying holders.</p>
-        <p>Treasury disclosure upon governance activation.</p>
+    <div class="section" id="governance">
+      <h2>Governance activation</h2>
+      <p>
+        Governance is designed to activate once at least twenty qualifying holders are identified on chain. A qualifying holder is defined as an address holding more than five million KRYP. At activation, update authority will be renounced and the treasury wallet will be publicly disclosed. Governance will begin through a verifiable off chain framework and may transition to an on chain model as adoption matures.
+      </p>
+    </div>
+
+    <div class="section" id="docs">
+      <h2>Documentation</h2>
+      <p>
+        The litepaper is the canonical statement of the project’s purpose, design principles, and stewardship constraints. Use it as the primary reference when evaluating Kryptho.
+      </p>
+
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="btn primary" target="_blank" rel="noopener noreferrer"
+           href="https://drive.google.com/file/d/1jVpb_G4QcfyVrN6_6RsWrFCgcOyd_h-k/view?usp=drivesdk">
+          Open litepaper
+        </a>
+
+        <a class="btn" target="_blank" rel="noopener noreferrer"
+           href="https://raydium.io/liquidity-pools/?token=BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN&sort_by=liquidity&tab=standard">
+          Open Raydium pool
+        </a>
+      </div>
     </div>
 
     <div class="footer">
-        © 2026 Kryptho. Decentralized. Independent. Transparent.
+      © 2026 Kryptho. This website is informational only. No guarantees are made regarding market performance, liquidity depth, or adoption.
     </div>
-</div>
+
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById("copyBtn");
+      const toast = document.getElementById("toast");
+      const addr = document.getElementById("tokenAddr").textContent.trim();
+
+      btn.addEventListener("click", async () => {
+        try{
+          await navigator.clipboard.writeText(addr);
+          toast.style.display = "inline";
+          setTimeout(() => { toast.style.display = "none"; }, 1200);
+        }catch(e){
+          // fallback
+          const ta = document.createElement("textarea");
+          ta.value = addr;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          toast.style.display = "inline";
+          setTimeout(() => { toast.style.display = "none"; }, 1200);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
