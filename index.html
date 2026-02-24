@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kryptho | KRYP</title>
-  <meta name="description" content="Kryptho (KRYP) is a rule based digital asset on Solana designed around verification, transparent constraints, and gradual decentralization." />
+  <meta name="description" content="Kryptho (KRYP) is built on transparent structure and designed to move forward." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
   <div class="wrap">
+
     <div class="nav">
       <div class="brand">
         <img class="tokenIcon" src="assets/img/token.jpg" alt="Kryptho token icon">
@@ -33,10 +35,9 @@
     <div class="hero">
       <div class="heroInner">
         <div>
-          <h1>Minimal, verifiable, rule based</h1>
-          <p class="lead">
-            Kryptho is designed as infrastructure. It prioritizes transparent constraints, verifiable rules, and governance that activates only when participation becomes real.
-          </p>
+          <div class="kicker">Digital asset on Solana</div>
+          <h1>Kryptho is built on transparent structure and designed to move forward.</h1>
+          <p class="lead">KRYP is live on Solana with transparent issuance and public liquidity infrastructure.</p>
 
           <div class="cta">
             <a class="btn primary" target="_blank" rel="noopener noreferrer"
@@ -49,13 +50,18 @@
               Litepaper
             </a>
           </div>
+
+          <div class="liveIndicator">
+            <div class="liveDot"></div>
+            Live on Solana Mainnet
+          </div>
         </div>
 
-        <div class="card">
+        <div class="panel">
           <div class="kpi">
             <div class="item">
-              <div class="label">Network</div>
-              <div class="value">Solana</div>
+              <div class="label">Symbol</div>
+              <div class="value">KRYP</div>
             </div>
             <div class="item">
               <div class="label">Pair</div>
@@ -72,7 +78,7 @@
           </div>
 
           <div style="margin-top:14px;">
-            <div class="sectionTitle">Token address</div>
+            <div class="kicker" style="letter-spacing:0.10em; margin-bottom:8px;">Token address</div>
             <div class="mono" id="tokenAddr">BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN</div>
 
             <div class="copyRow">
@@ -80,7 +86,7 @@
               <span class="toast" id="toast">Copied</span>
             </div>
 
-            <div style="margin-top:12px; color: rgba(255,255,255,0.70); font-size:14px;">
+            <div style="margin-top:12px; color: rgba(255,255,255,0.72); font-size:14px;">
               Mint authority and freeze authority have been renounced and can be verified on chain.
             </div>
           </div>
@@ -89,19 +95,23 @@
     </div>
 
     <div class="section">
-      <div class="sectionTitle">Verification first</div>
-      <div class="twoCol">
-        <div class="card">
-          <div class="sectionTitle">Liquidity</div>
-          <div style="color: rgba(255,255,255,0.72); font-size:14px;">
-            Public liquidity through Raydium. LP tokens burned to reinforce permanence at the infrastructure level.
-          </div>
+      <div class="sectionTitle">
+        <h2>Infrastructure snapshot</h2>
+        <div class="ruleLine"></div>
+      </div>
+
+      <div class="snapshot">
+        <div class="row">
+          <div class="k">Network</div>
+          <div class="v">Solana Mainnet</div>
         </div>
-        <div class="card">
-          <div class="sectionTitle">Governance</div>
-          <div style="color: rgba(255,255,255,0.72); font-size:14px;">
-            Activates at 20 qualifying holders. Qualifying means more than 5,000,000 KRYP per address.
-          </div>
+        <div class="row">
+          <div class="k">Liquidity</div>
+          <div class="v">KRYP USDC pool on Raydium</div>
+        </div>
+        <div class="row">
+          <div class="k">Token standard</div>
+          <div class="v">SPL token, mint and freeze authority renounced</div>
         </div>
       </div>
     </div>
@@ -109,6 +119,7 @@
     <div class="footer">
       © 2026 Kryptho. Informational content only. No guarantees are made regarding market performance, liquidity depth, or adoption.
     </div>
+
   </div>
 
   <script>
@@ -116,6 +127,7 @@
       const btn = document.getElementById("copyBtn");
       const toast = document.getElementById("toast");
       const addr = document.getElementById("tokenAddr").textContent.trim();
+
       btn.addEventListener("click", async () => {
         try{
           await navigator.clipboard.writeText(addr);
