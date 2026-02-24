@@ -4,22 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kryptho | KRYP</title>
-  <meta name="description" content="Kryptho (KRYP) is a rule based digital asset on Solana, designed around transparent constraints and gradual decentralization." />
+  <meta name="description" content="Kryptho (KRYP) is a rule based digital asset on Solana designed around verification, transparent constraints, and gradual decentralization." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <div class="wrap">
     <div class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
+        <img class="tokenIcon" src="assets/img/token.jpg" alt="Kryptho token icon">
+        <div class="brandText">
           <strong>Kryptho</strong>
           <small>KRYP on Solana</small>
         </div>
       </div>
+
+      <div class="slogan">Rule based infrastructure for voluntary exchange</div>
+
       <div class="links">
         <a class="pill active" href="index.html">Home</a>
         <a class="pill" href="governance.html">Governance</a>
@@ -28,41 +31,35 @@
     </div>
 
     <div class="hero">
-      <div class="grid">
+      <div class="heroInner">
         <div>
-          <h1>Serene technology with disciplined rules</h1>
+          <h1>Minimal, verifiable, rule based</h1>
           <p class="lead">
-            Kryptho is a decentralized digital asset designed to be verifiable and constrained. It avoids performative promises and focuses on structure, transparent stewardship, and gradual decentralization once real participation exists.
+            Kryptho is designed as infrastructure. It prioritizes transparent constraints, verifiable rules, and governance that activates only when participation becomes real.
           </p>
 
           <div class="cta">
             <a class="btn primary" target="_blank" rel="noopener noreferrer"
-               href="https://raydium.io/liquidity-pools/?token=BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN&sort_by=liquidity&tab=standard">
+              href="https://raydium.io/liquidity-pools/?token=BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN&sort_by=liquidity&tab=standard">
               Raydium pool
             </a>
+
             <a class="btn" target="_blank" rel="noopener noreferrer"
-               href="https://drive.google.com/file/d/1jVpb_G4QcfyVrN6_6RsWrFCgcOyd_h-k/view?usp=drivesdk">
+              href="https://drive.google.com/file/d/1jVpb_G4QcfyVrN6_6RsWrFCgcOyd_h-k/view?usp=drivesdk">
               Litepaper
             </a>
-          </div>
-
-          <div class="section" style="margin-top:16px;">
-            <h2>What it is</h2>
-            <p>
-              Kryptho uses blockchain as a rule enforcing layer. The aim is not to remove uncertainty from markets but to reduce arbitrariness in the monetary structure. KRYP is intended to serve as infrastructure in design and as a movement in execution through community stewardship.
-            </p>
           </div>
         </div>
 
         <div class="card">
           <div class="kpi">
             <div class="item">
-              <div class="label">Symbol</div>
-              <div class="value">KRYP</div>
-            </div>
-            <div class="item">
               <div class="label">Network</div>
               <div class="value">Solana</div>
+            </div>
+            <div class="item">
+              <div class="label">Pair</div>
+              <div class="value">KRYP USDC</div>
             </div>
             <div class="item">
               <div class="label">Total supply</div>
@@ -75,7 +72,7 @@
           </div>
 
           <div style="margin-top:14px;">
-            <div class="label" style="color:var(--faint); font-size:12px;">Token address</div>
+            <div class="sectionTitle">Token address</div>
             <div class="mono" id="tokenAddr">BCnPEDJxpLgSmUyQycEAJt72S8UHtBq6Fy4SzGbJPDvN</div>
 
             <div class="copyRow">
@@ -83,7 +80,7 @@
               <span class="toast" id="toast">Copied</span>
             </div>
 
-            <div style="margin-top:12px; color:var(--muted); font-size:14px;">
+            <div style="margin-top:12px; color: rgba(255,255,255,0.70); font-size:14px;">
               Mint authority and freeze authority have been renounced and can be verified on chain.
             </div>
           </div>
@@ -91,18 +88,21 @@
       </div>
     </div>
 
-    <div class="miniGrid">
-      <div class="mini">
-        <h3>Liquidity permanence</h3>
-        <p>
-          KRYP is publicly tradable through the KRYP USDC pool on Raydium. LP tokens have been burned to reinforce permanence at the infrastructure level.
-        </p>
-      </div>
-      <div class="mini">
-        <h3>Discipline before scale</h3>
-        <p>
-          Kryptho prioritizes constraints, clarity, and a governance trigger that activates only after a minimum base of qualifying holders exists. Growth without discipline is temporary.
-        </p>
+    <div class="section">
+      <div class="sectionTitle">Verification first</div>
+      <div class="twoCol">
+        <div class="card">
+          <div class="sectionTitle">Liquidity</div>
+          <div style="color: rgba(255,255,255,0.72); font-size:14px;">
+            Public liquidity through Raydium. LP tokens burned to reinforce permanence at the infrastructure level.
+          </div>
+        </div>
+        <div class="card">
+          <div class="sectionTitle">Governance</div>
+          <div style="color: rgba(255,255,255,0.72); font-size:14px;">
+            Activates at 20 qualifying holders. Qualifying means more than 5,000,000 KRYP per address.
+          </div>
+        </div>
       </div>
     </div>
 
